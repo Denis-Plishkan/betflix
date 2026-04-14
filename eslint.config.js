@@ -1,15 +1,15 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
 import prettierPlugin from 'eslint-plugin-prettier';
+import pluginReact from 'eslint-plugin-react';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     plugins: { js },
-    extends: ["js/recommended"],
+    extends: ['js/recommended'],
     languageOptions: { globals: globals.browser },
   },
   pluginReact.configs.flat.recommended,
@@ -26,6 +26,7 @@ export default defineConfig([
     rules: {
       'prettier/prettier': 'error',
       'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 0
     },
   },
 ]);
