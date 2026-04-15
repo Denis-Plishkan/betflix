@@ -16,8 +16,8 @@ export default function Footer() {
     >
       <Typography variant="body2" color="text.secondary">
         &copy; {new Date().getFullYear()} &laquo;betflix&raquo; 18+ <br />
-        Данный сайт создан исключительнов обучающих целях. <br />
-        Все права принадлежат правообладателям.
+        This website is created for educational purposes only. <br />
+        All rights belong to their respective owners.
       </Typography>
 
       <Typography variant="h4" color="primary">

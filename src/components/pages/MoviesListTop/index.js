@@ -1,3 +1,3 @@
-import MoviesListTop from '@/components/pages/MoviesListTop/MoviesListTop';
+import MoviesListTop from './MoviesListTop';
 
 export default MoviesListTop;

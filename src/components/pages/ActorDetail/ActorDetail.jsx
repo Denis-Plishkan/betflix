@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function ActorDetail() {
-  return (
-    <div>ActorDetail</div>
-  )
+  return <div>ActorDetail</div>;
 }

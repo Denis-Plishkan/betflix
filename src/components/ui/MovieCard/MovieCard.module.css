@@ -1,0 +1,9 @@
+.img {
+    max-width: 215px;
+    height: 322px;
+    transition: transform 0.5s;
+}
+
+.img:hover {
+    transform: scale(1.05);
+}
