@@ -1,4 +1,6 @@
+import ErrorMessage from '@/components/ui/ErrorMessage';
 import MoviesList from '@/components/ui/MoviesList';
+import MoviesListSkeleton from '@/components/ui/MoviesListSkeleton';
 import { TOP_LISTS } from '@/constatnts';
 import { useGetFilmsTopQuery } from '@/services/kinopoiskApi';
 import { ArrowBack } from '@mui/icons-material';
@@ -23,9 +25,9 @@ export default function MoviesListTop() {
     setPage(1);
   }, [location]);
 
-  if (error) return <p>Some error</p>;
+  if (error) return <ErrorMessage />;
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <MoviesListSkeleton />;
 
   return (
     <>

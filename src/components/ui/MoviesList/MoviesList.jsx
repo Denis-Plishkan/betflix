@@ -2,8 +2,6 @@ import MovieCard from '@/components/ui/MovieCard';
 import { Pagination, Stack } from '@mui/material';
 
 export default function MoviesList({ movies, totalPages, page, setPage }) {
-  console.log(movies);
-
   return (
     <Stack sx={{ flexDirection: 'column', gap: 2 }}>
       <Stack
