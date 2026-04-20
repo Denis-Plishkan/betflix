@@ -18,6 +18,7 @@ export const kinopoiskApi = createApi({
     prepareHeaders: headers => {
       headers.set('X-API-KEY', kinopoiskApiKey);
       headers.set('Content-Type', 'application/json');
+      return headers;
     },
   }),
   endpoints: builder => ({
@@ -45,6 +46,34 @@ export const kinopoiskApi = createApi({
         ),
       }),
     }),
+    getFilm: builder.query({
+      query: id => `/v2.2/films/${id}`,
+    }),
+
+    getSequelsAndPrequels: builder.query({
+      query: id => `/v2.1/films/${id}/sequels_and_prequels`,
+      transformResponse: response =>
+        Array.isArray(response)
+          ? response.map(el => ({ ...el, kinopoiskId: el.filmId }))
+          : [],
+    }),
+
+    getStaff: builder.query({
+      query: id => `/v1/staff?filmId=${id}`,
+    }),
+
+    getVideos: builder.query({
+      query: id => `/v2.2/films/${id}/videos`,
+      transformResponse: response =>
+        response.items
+          ?.filter(v => v.site === 'YOUTUBE')
+          .map(v => ({
+            ...v,
+            url: v.url
+              .replace('youtu.be/', 'www.youtube.com/watch?v=')
+              .replace('youtube.com/v/', 'youtube.com/watch?v='),
+          })) || [],
+    }),
   }),
 });
 
@@ -52,4 +81,8 @@ export const {
   useGetFilmsTopQuery,
   useGetFilmsQuery,
   useGetGenresAndCountriesQuery,
+  useGetFilmQuery,
+  useGetSequelsAndPrequelsQuery,
+  useGetStaffQuery,
+  useGetVideosQuery,
 } = kinopoiskApi;

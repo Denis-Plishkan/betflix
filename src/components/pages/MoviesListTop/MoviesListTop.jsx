@@ -1,12 +1,13 @@
 import ErrorMessage from '@/components/ui/ErrorMessage';
 import MoviesList from '@/components/ui/MoviesList';
-import MoviesListSkeleton from '@/components/ui/MoviesListSkeleton';
 import { TOP_LISTS } from '@/constatnts';
 import { useGetFilmsTopQuery } from '@/services/kinopoiskApi';
 import { ArrowBack } from '@mui/icons-material';
 import { Button, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import MoviesListTopSkeleton from './MoviesListTopSkeleton';
 
 export default function MoviesListTop() {
   const location = useLocation();
@@ -27,7 +28,7 @@ export default function MoviesListTop() {
 
   if (error) return <ErrorMessage />;
 
-  if (isLoading) return <MoviesListSkeleton />;
+  if (isLoading) return <MoviesListTopSkeleton />;
 
   return (
     <>
