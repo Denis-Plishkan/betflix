@@ -15,7 +15,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ReactPlayer from 'react-player';
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function MovieDetail() {
